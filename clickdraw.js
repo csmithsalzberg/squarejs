@@ -26,20 +26,26 @@ toggle.addEventListener("click", mode);
 var count = 0;
 
 var draw = function(e){
-    console.log(e.offsetX);
-    console.log(e.offsetY);
-    
-    if (count = 0){
+    ctx.strokeStyle="red";
+    ctx.fillStyle="red";
+    if (count == 0){
+	
+	console.log("new one, just a circle");
+
 	ctx.beginPath();
+	ctx.arc(e.offsetX, e.offsetY, 10, 0, 2*Math.PI);
+	ctx.stroke();
+	ctx.fill();
 	ctx.moveTo(e.offsetX,e.offsetY);
 	count += 1;
     }
     else{
+
+	console.log("make a line");
+
 	ctx.lineTo(e.offsetX,e.offsetY);
 	ctx.stroke();
 	ctx.beginPath();
-	ctx.strokeStyle="red";
-	ctx.fillStyle="red";
 	if (type =="circle"){
 	    ctx.arc(e.offsetX, e.offsetY, 10, 0, 2*Math.PI);
 	    ctx.stroke();
